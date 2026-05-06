@@ -1,128 +1,75 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Piper Sandler Companies
+providerId: piper-sandler
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Investment Banking
+  - Capital Markets
+notes: Piper Sandler is an investment bank, not a software / API vendor. There is no public
+  metered API to model. This artifact captures the FinOps shape only at the institutional client
+  contract level.
+description: FOCUS-aligned FinOps placeholder for Piper Sandler. As an investment bank and
+  institutional broker-dealer, Piper Sandler bills clients via brokerage commissions, advisory
+  fees, and research / platform subscriptions rather than as a metered API SKU.
+sources:
+  - https://www.pipersandler.com/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: Piper Sandler Companies
-providerId: piper-sandler
 publisherName: Piper Sandler Companies
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Investment Banking
-  - Institutional Brokerage
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Piper Sandler Companies API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+serviceCategory: Capital Markets
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Bilateral Contract
+  billingFrequency: Per-Mandate
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
-  ServiceName: Piper Sandler Companies
-  ServiceCategory: Developer Tools / API
-  ProviderName: Piper Sandler Companies
+  ServiceName: Piper Sandler Institutional
+  ServiceCategory: Capital Markets
+  ServiceSubcategory: Investment Banking and Institutional Brokerage
+  ProviderName: Piper Sandler
   PublisherName: Piper Sandler Companies
   InvoiceIssuerName: Piper Sandler Companies
-  PricingCategory: Usage-Based
-  PricingUnit: request
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
-    aggregation: sum
+  - name: institutional_client_contract
+    description: Bilateral institutional client mandate (research distribution, trading,
+      advisory). Not metered per-call.
+    unit: contract
+    aggregation: count
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - product_line
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+  - name: brokerage_commission
+    description: Per-trade or per-share commission billed at execution. Not API-metered.
+    unit: trade
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Piper Sandler Companies API
-    baseURL: https://api.pipersandler.com
-    tags:
-      - Investment Banking
-      - Institutional Brokerage
-    serviceName: Piper Sandler Companies API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - asset_class
+principles:
+  - name: Visibility
+    description: Visibility lives at the brokerage / advisory invoice level rather than at API
+      consumption.
+  - name: Allocation
+    description: Allocate institutional fees and brokerage commissions to the consuming desk /
+      strategy / fund.
+  - name: Optimization
+    description: Optimize via execution-quality reviews and renegotiation of advisory mandates;
+      this is not an API-cost-optimization problem.
+  - name: Accountability
+    description: Buy-side trading desk and finance team own the relationship and review fees per
+      mandate.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
