@@ -2,7 +2,7 @@ aid: piper-sandler
 url: https://raw.githubusercontent.com/api-evangelist/piper-sandler/refs/heads/main/apis.yml
 name: Piper Sandler Companies
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Investment Banking
   - Institutional Brokerage
@@ -17,7 +17,7 @@ apis:
     tags:
       - Investment Banking
       - Institutional Brokerage
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.pipersandler.com
     humanURL: https://developer.pipersandler.com
     properties:
