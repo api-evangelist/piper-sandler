@@ -49,6 +49,12 @@ apis:
     description: >-
       The Piper Sandler Companies API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: Plans
+    url: plans/piper-sandler-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/piper-sandler-rate-limits.yml
+  - type: FinOps
+    url: finops/piper-sandler-finops.yml
   - url: https://www.pipersandler.com/rss.xml
     type: BlogRSS
   - type: DomainSecurity
