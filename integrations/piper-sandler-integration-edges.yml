@@ -1,0 +1,18 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/piper-sandler/integrations
+- https://zapier.com/apps/piper-sandler-companies/integrations
+- https://n8n.io/integrations/piper-sandler/
+- https://composio.dev/toolkits/piper-sandler
+- https://monid.ai/tools/piper-sandler
+checked:
+- https://composio.dev/toolkits/piper-sandler
+- https://monid.ai/tools/piper-sandler
+- https://n8n.io/integrations/piper-sandler/
+- https://zapier.com/apps/piper-sandler-companies/integrations
+- https://zapier.com/apps/piper-sandler/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
